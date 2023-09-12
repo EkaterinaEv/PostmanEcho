@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 
 public class PostmanEchoTest {
     @Test
@@ -17,11 +18,7 @@ public class PostmanEchoTest {
 // Проверки
                 .then()
                 .statusCode(200)
-//                .body(/* --> ваша проверка здесь <-- */)
+                .body("data", equalTo("some data"))
         ;
     }
 }
-
-//Изучите ответ и напишите JSONPath-выражение вместо строк /* --> ваша проверка здесь <--*/,
-// которое проверит, что в нужном
-// поле хранятся отправленные вами данные. Обратите внимание, теперь у вас не массив, а объект.
